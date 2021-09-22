@@ -43,8 +43,3 @@ class Navigation extends React.Component<NavbarProps, NavbarVars> {
                 }
                 
 export default Navigation
-
-
-                {/* <Switch>
-                    <Route exact path='/savedgamesmine'><SavedGamesMine token={this.props.token}/></Route>
-                </Switch> */}

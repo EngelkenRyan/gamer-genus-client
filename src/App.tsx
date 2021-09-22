@@ -46,7 +46,7 @@ render() {
     {/* <CreateSavedGame  token={this.state.sessionToken}/>
     <SavedGamesMine token={this.state.sessionToken}/>  */}
     <Router>
-      {this.state.sessionToken !== '' && <Navigation token={this.state.sessionToken} clearToken={this.clearToken}/>}
+    {this.state.sessionToken !== '' && <Navigation token={this.state.sessionToken} clearToken={this.clearToken}/>}
     {this.protectedView()}
     </Router>
     </div>

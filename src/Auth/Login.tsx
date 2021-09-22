@@ -9,7 +9,7 @@ type UserVars = {
 type LoginProps = {
     updateToken: (newToken: string) => void,
     token: string,
-    toggle: Function
+    toggle: () => void
 }
 
 class Login extends Component<LoginProps, UserVars> {
@@ -37,7 +37,7 @@ class Login extends Component<LoginProps, UserVars> {
           .then((data) => {
             this.props.updateToken(data.sessionToken);
             localStorage.setItem("role", data.user.role);
-            this.props.toggle();
+            // this.props.toggle();
         })
       }
 

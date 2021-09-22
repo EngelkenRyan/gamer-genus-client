@@ -1,6 +1,9 @@
+import { Edit } from '@material-ui/icons';
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import CreateSavedGame from './CreateSavedGame'
+import DeleteSavedGame from './DeleteSavedGame';
+import EditSavedGame from './EditSavedGame';
 
 type SavedMineVars = {
     gametitle: string,
@@ -27,23 +30,27 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
         }
     }
 
-    componentWillMount() {
-        fetch(`http://localhost:3000/savedgame/savedmine`, {
-            method: 'GET',
-            headers: ({
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.props.token}`
-            })
-        }).then(
-            (response) => response.json()
-        ).then((data) => {
-            console.log(data)
-            this.setState({
-                myPosts: data
-            })
-        })
+    componentDidMount() {
+        this.fetchSavedGames()
     }
 
+    fetchSavedGames = () => {
+    fetch(`http://localhost:3000/savedgame/savedmine`, {
+        method: 'GET',
+        headers: ({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.props.token}`
+        })
+    }).then(
+        (response) => response.json()
+    ).then((data) => {
+        console.log(data)
+        this.setState({
+            myPosts: data
+        })
+    })
+}
+    
     render() {
         const { myPosts } = this.state;
         return (
@@ -54,7 +61,7 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
                     <div className='postsTable'>
                         {myPosts.map(myPosts => (
                             <div className='myPosts' key={myPosts.id}>
-                                <Table striped bordered hover>
+                                <Table>
                                     <thead>
                                         <tr>
                                             <th>Game Name</th>
@@ -70,6 +77,8 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
                                             <td>{myPosts.genre}</td>
                                             <td>{myPosts.description}</td>
                                             <td>{myPosts.platform}</td>
+                                            <td><EditSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames} /></td>
+                                            <td><DeleteSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames}/></td>
                                         </tr>
                                     </tbody>
                                 </Table>

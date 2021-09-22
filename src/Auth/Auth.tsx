@@ -17,13 +17,13 @@ token: string
 class Auth extends Component<AuthProps, AuthVariables> {
 constructor(props: AuthProps) {
 super(props)
-this.state= {modal: true, showLogin: true, buttonText: "Already a User?" };}
+this.state = {modal: true, showLogin: true, buttonText: "Already a User?" };}
 
 
 
-  toggle = () => {
-  this.setState({modal: !this.state.modal})
-}  
+toggle = (): void => {
+this.setState({modal: !this.state.modal})
+}
 
 componentDidMount() {
   if(localStorage.getItem("token")) {
@@ -31,7 +31,7 @@ componentDidMount() {
   }
 }
 
-  handleClick= () => {
+  handleClick = () => {
     if (this.state.showLogin === true) {
       this.setState({showLogin: false});
       this.setState({buttonText: "New User?"});

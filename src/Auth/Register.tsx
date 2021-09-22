@@ -43,7 +43,6 @@ class Register extends Component<RegisterProps, RegisterVars> {
       .then((data) => {
         this.props.updateToken(data.sessionToken);
         localStorage.setItem("role", data.user.role);
-        this.props.toggle();
     })
   }
 
