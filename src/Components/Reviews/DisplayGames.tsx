@@ -7,6 +7,10 @@ type DisplayGamesVars = {
     apiKey: string,
     searchTerm: string,
     create: boolean,
+    gametitle: string,
+    gameimg: any,
+    gamegenre: string,
+    platform: string,
 }
 
 type DisplayGamesProps = {
@@ -20,7 +24,11 @@ class DisplayGames extends React.Component<DisplayGamesProps, DisplayGamesVars> 
             gamesList: [],
             apiKey: '75bf2e9cf0cf42a2ae29640a3379c0f1',
             searchTerm: '',
-            create: false
+            create: false,
+            gametitle: "",
+            gameimg: "",
+            gamegenre: "",
+            platform: "",
         }
     }
 
@@ -66,7 +74,7 @@ class DisplayGames extends React.Component<DisplayGamesProps, DisplayGamesVars> 
                             <li><img src={games.background_image} style={{ width: 100, height: 100 }}/></li>
                             <li>{games.name}</li>   
                             <li>{games.released}</li>
-                            <li><CreateReview token={this.props.token}/></li>
+                            <li><CreateReview token={this.props.token} game={games}/></li>
                         </ul>
                     ))}
                 </div>

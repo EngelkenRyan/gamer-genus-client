@@ -48,45 +48,53 @@ class Register extends Component<RegisterProps, RegisterVars> {
 
   render() {
     return (
-      <div>
+      <div style={{
+        textAlign: "center",
+        marginRight: "auto",
+        marginLeft: "auto",
+    }}>
         <h1>Sign up</h1>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup className="register-form">
-            <Label className="register-label" htmlFor="Email">Email</Label>
+            <Label className="register-label" htmlFor="Email" >Email</Label><br />
             <Input
             onChange={(e) => this.setState({email: e.target.value})}
             type="email"
             name="email"
             placeholder="example@email.com"
             value={this.state.email} 
-            required/>
+            required
+            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center'}}
+            />
           </FormGroup>
           <FormGroup className="register-form">
-            <Label className="register-label" htmlFor="username">Username</Label>
+            <Label className="register-label" htmlFor="username">Username</Label><br />
             <Input 
             onChange={(e) => this.setState({username: e.target.value })}
             name="username"
             placeholder="username"
             value={this.state.username} 
-            required/>
+            required
+            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center'}}/>
           </FormGroup>
           <FormGroup className="register-form">
-            <Label className="register-label" htmlFor="password">Password</Label>
+            <Label className="register-label" htmlFor="Password">Password</Label><br />
             <Input 
             onChange={(e) => this.setState({password: e.target.value })}
             type="password"
             name="password"
             placeholder="password"
             value={this.state.password}
-            required/>
+            required
+            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center'}}/>
           </FormGroup>
-          <FormGroup>
+          <FormGroup style={{marginBottom: "1%"}}>
             <select onChange={(e) => this.setState({role: e.target.value.toLowerCase() })}>
             <option>User</option>
             <option>Admin</option>
             </select>
           </FormGroup>
-            <Button type="submit">Sign Up!</Button>
+            <Button type="submit" style={{marginBottom: ".5%"}}>Sign Up!</Button>
         </Form>
       </div>
     )

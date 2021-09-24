@@ -12,7 +12,8 @@ type CreateReviewVars = {
 }
 
 type CreateReviewProps = {
-    token: string
+    token: string,
+    game: any
 }
 
 class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
@@ -37,7 +38,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
         const response = await fetch(`http://localhost:3000/review/create`, {
             method: "POST",
             body:JSON.stringify({
-                gametitle: this.state.gametitle,
+                gametitle: this.props.game.name,
                 date: this.state.date,
                 feedback: this.state.feedback,
                 rating: this.state.rating,
@@ -60,13 +61,10 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
             <ModalBody>
                 <Form onSubmit={this.handleCreate}>
                     <div className="createreviewlabel">
-                        Enter Game Title
-                        <Input 
-                        onChange={(e) => this.setState({gametitle: e.target.value})}
-                        name="gametitle"
-                        placeholder="Enter game title"
-                        value={this.state.gametitle}
-                        required/>
+                        {/* Enter Game Title */}
+                        <span>
+                        {this.props.game.name}
+                        </span>
                         <br />
                         <Input 
                         onChange={(e) => this.setState({date: e.target.value})}

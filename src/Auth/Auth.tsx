@@ -31,7 +31,7 @@ componentDidMount() {
   }
 }
 
-  handleClick = () => {
+  handleClick = () => { 
     if (this.state.showLogin === true) {
       this.setState({showLogin: false});
       this.setState({buttonText: "New User?"});
@@ -43,17 +43,23 @@ componentDidMount() {
 
   render() {
   return (
-    <div> 
+    <div className="auth" > 
     <Form onSubmit={(e) => e.preventDefault()}>
-        <Modal isOpen={this.state.modal} >
-          <div className="form-container">
+        <Modal isOpen={this.state.modal}   style={{justifyContent: 'center',
+      alignItems: 'center',}}>
+          <div className="authcontainer">
             {this.state.showLogin === true ? (
               <Register updateToken={this.props.updateToken} token={this.props.token} toggle={this.toggle} />
             ) : (
               <Login updateToken={this.props.updateToken} token ={this.props.token}  toggle={this.toggle} />
             )}
 
-            <ModalFooter>
+            <ModalFooter
+            style={{
+            textAlign: "center",
+            marginRight: "auto",
+            marginLeft: "auto"
+        }}>
               <Button color="secondary" onClick={this.handleClick}>
                   {this.state.buttonText}
               </Button>
@@ -65,4 +71,5 @@ componentDidMount() {
   )
 };
 }
+
 export default Auth;

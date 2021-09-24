@@ -43,30 +43,36 @@ class Login extends Component<LoginProps, UserVars> {
 
       render() {
           return (
-              <div>
+              <div                       style={{
+                textAlign: "center",
+                marginRight: "auto",
+                marginLeft: "auto"
+            }}>
                   <h1>Login</h1>
                   <Form onSubmit={this.handleSubmit}>
                       <FormGroup className="login-form">
-                          <Label htmlFor="email" className="login-label">Email</Label>
+                          <Label htmlFor="email" className="login-label">Email</Label><br />
                           <Input
                             onChange={(e) => this.setState({email: e.target.value})}
                             type="email"
                             name="email"
                             placeholder="example@email.com"
                             value={this.state.email} 
-                            required/>
+                            required
+                            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center'}}/>
                       </FormGroup>
                       <FormGroup className="login-form">
-                          <Label htmlFor="password" className="login-label">Password</Label>
+                          <Label htmlFor="password" className="login-label">Password</Label><br />
                           <Input 
                             onChange={(e) => this.setState({password: e.target.value })}
                             type="password"
                             name="password"
                             placeholder="password"
                             value={this.state.password}
-                            required/>
+                            required
+                            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center'}}/>
                       </FormGroup>
-                      <Button type="submit">Login</Button>
+                      <Button type="submit" style={{marginBottom: ".5%"}}>Login</Button>
                   </Form>
               </div>
           )

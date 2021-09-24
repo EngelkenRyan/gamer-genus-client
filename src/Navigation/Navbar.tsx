@@ -1,8 +1,6 @@
 import React from 'react';
 import {
     Navbar,
-    Collapse,
-    NavbarToggler,
     Nav,
     NavItem,
     Button,
@@ -17,28 +15,29 @@ type NavbarProps = {
 }
 
 type NavbarVars = {
+    isOpen: boolean;
 }
 
 class Navigation extends React.Component<NavbarProps, NavbarVars> {
     constructor (props: NavbarProps) {
         super(props)
         this.state = {
+            isOpen: true
         }
     };
-    
-    render() {
-        return(
-            <Navbar light expand="md" className="navbar">
+
+        
+        render() {
+            return(
+                <Navbar light expand="md" className="navbar">
                 <Nav className="navlinks" navbar>
                     <NavItem>
-                        <Link to='/savedgamesmine' className='navbarButton'>My Saved Games</Link>
-                        <Link to='/displaygames' className='navbarButton'>Display Games</Link>
-                        <Link to='/reviewmine' className='navbarButton'>My Reviews</Link>
-                        </NavItem>
-                    </Nav>
-                    <div className="logoutbtn">
+                        <Link to='/' className='navbarButton' style={{ textDecoration: 'none', color: 'black'}}>Home</Link>
+                        <Link to='/savedgamesmine' className='navbarButton' style={{ textDecoration: 'none', color: 'black'}}>My Saved Games</Link>
+                        <Link to='/reviewmine' className='navbarButton' style={{ textDecoration: 'none', color: 'black'}}>My Reviews</Link>
                         <Button onClick={this.props.clearToken}>Logout</Button>
-                        </div>
+                    </NavItem>
+                    </Nav>
                         </Navbar>
                         )
                     }

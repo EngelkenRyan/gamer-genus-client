@@ -23,12 +23,13 @@ class Navigationbar extends React.Component<NavigationProps, NavigationVars> {
         this.state = {
         }
     };
+    
 
     render() {
         return(
             <Switch>
+            <Route exact path='/'><DisplayGames token={this.props.token} /></Route>
             <Route exact path='/savedgamesmine'><SavedGamesMine token={this.props.token}/></Route>
-            <Route exact path='/displaygames'><DisplayGames token={this.props.token} /></Route>
             <Route exact path='/reviewmine'><ReviewMine token={this.props.token} /></Route>
             </Switch>
         )
