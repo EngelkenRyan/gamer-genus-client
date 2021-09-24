@@ -33,6 +33,7 @@ class Navigation extends React.Component<NavbarProps, NavbarVars> {
                     <NavItem>
                         <Link to='/savedgamesmine' className='navbarButton'>My Saved Games</Link>
                         <Link to='/displaygames' className='navbarButton'>Display Games</Link>
+                        <Link to='/reviewmine' className='navbarButton'>My Reviews</Link>
                         </NavItem>
                     </Nav>
                     <div className="logoutbtn">

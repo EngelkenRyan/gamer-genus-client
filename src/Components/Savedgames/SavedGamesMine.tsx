@@ -1,4 +1,3 @@
-import { Edit } from '@material-ui/icons';
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 import CreateSavedGame from './CreateSavedGame'

@@ -1,5 +1,6 @@
 import Button from '@material-ui/core/Button';
 import React, { Component } from 'react';
+import CreateReview from './ReviewCreate';
 
 type DisplayGamesVars = {
     gamesList: any[],
@@ -62,10 +63,10 @@ class DisplayGames extends React.Component<DisplayGamesProps, DisplayGamesVars> 
                 <div className="displayresults">
                     {this.state.gamesList.map((games) => (
                         <ul>
-                            <li>{games.background_image}</li>
+                            <li><img src={games.background_image} style={{ width: 100, height: 100 }}/></li>
                             <li>{games.name}</li>   
                             <li>{games.released}</li>
-                            <li>{games.slug.description}</li>
+                            <li><CreateReview token={this.props.token}/></li>
                         </ul>
                     ))}
                 </div>

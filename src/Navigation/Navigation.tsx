@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import SavedGamesMine from '../Components/Savedgames/SavedGamesMine'
 import DisplayGames from '../Components/Reviews/DisplayGames'
+import ReviewMine from '../Components/Reviews/ReviewMine'
 
 
 type NavigationProps = {
@@ -28,6 +29,7 @@ class Navigationbar extends React.Component<NavigationProps, NavigationVars> {
             <Switch>
             <Route exact path='/savedgamesmine'><SavedGamesMine token={this.props.token}/></Route>
             <Route exact path='/displaygames'><DisplayGames token={this.props.token} /></Route>
+            <Route exact path='/reviewmine'><ReviewMine token={this.props.token} /></Route>
             </Switch>
         )
     }
