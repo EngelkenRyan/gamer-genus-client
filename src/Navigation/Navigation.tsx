@@ -7,6 +7,7 @@ import {
 import SavedGamesMine from '../Components/Savedgames/SavedGamesMine'
 import DisplayGames from '../Components/Reviews/DisplayGames'
 import ReviewMine from '../Components/Reviews/ReviewMine'
+import ReviewAll from '../Components/Reviews/ReviewAll';
 
 
 type NavigationProps = {
@@ -31,6 +32,7 @@ class Navigationbar extends React.Component<NavigationProps, NavigationVars> {
             <Route exact path='/'><DisplayGames token={this.props.token} /></Route>
             <Route exact path='/savedgamesmine'><SavedGamesMine token={this.props.token}/></Route>
             <Route exact path='/reviewmine'><ReviewMine token={this.props.token} /></Route>
+            <Route exact path='/reviewall'><ReviewAll token={this.props.token}  /></Route>
             </Switch>
         )
     }

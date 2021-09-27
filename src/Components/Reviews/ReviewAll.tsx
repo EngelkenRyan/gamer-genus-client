@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import { Card, CardActions, CardContent,CardMedia, Button, Typography } from '@material-ui/core';
-import ReviewDelete from './ReviewDelete';
-import ReviewUpdate from './ReviewUpdate'
+import React, { Component } from 'react'
+import { Card, CardActions, CardContent,CardMedia, Button, Typography, Grid } from '@material-ui/core';
 
-type ReviewMineVars = {
+type ReviewAllVars = {
     gametitle: string,
     gameimage: any,
     date: string,
@@ -12,12 +10,13 @@ type ReviewMineVars = {
     myReviews: any[],
 }
 
-type ReviewMineProps = {
-    token: string
+type ReviewAllProps = {
+    token: string | null
 }
 
-class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
-    constructor(props: ReviewMineProps) {
+
+class ReviewAll extends Component<ReviewAllProps, ReviewAllVars> {
+    constructor(props: ReviewAllProps) {
         super(props)
         this.state = {
             gametitle: "",
@@ -30,12 +29,12 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
     }
 
     componentDidMount() {
-        this.fetchReviewMine()
+        this.fetchReviewAll();
     }
 
-    fetchReviewMine = () => {
-        fetch(`http://localhost:3000/review/mine`, {
-            method: 'GET',
+    fetchReviewAll = () => {
+        fetch(`http://localhost:3000/review/`, {
+            method: "GET",
             headers: ({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${this.props.token}`
@@ -53,7 +52,7 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
     render() {
         const { myReviews } = this.state;
         return(
-            <Card variant="outlined">
+            <Card variant="outlined" style={{maxWidth: '350px', marginRight: "auto", marginLeft: "auto"  }}>
                 {myReviews.length > 0 && (
                     <div className='reviewmineTable'>
                         {myReviews.map(myReviews => (
@@ -79,10 +78,6 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
                                             {myReviews.rating}
                                             </Typography>
                                             </CardContent>
-                                            <CardActions>
-                                            <ReviewUpdate token={this.props.token} myReviews={myReviews} fetchMyReviews={this.fetchReviewMine}/>
-                                            <ReviewDelete token={this.props.token} myReviews={myReviews} fetchMyReviews={this.fetchReviewMine}/>
-                                            </CardActions>
                             </div>
                         ))}
                     </div>
@@ -93,4 +88,5 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
     }
 }
 
-export default ReviewMine
+export default ReviewAll
+

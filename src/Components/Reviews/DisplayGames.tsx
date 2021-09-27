@@ -1,5 +1,5 @@
-import Button from '@material-ui/core/Button';
-import React, { Component } from 'react';
+import React from 'react';
+import { Card, CardActions, CardContent,CardMedia, Button, Typography } from '@material-ui/core';
 import CreateReview from './ReviewCreate';
 
 type DisplayGamesVars = {
@@ -68,16 +68,24 @@ class DisplayGames extends React.Component<DisplayGamesProps, DisplayGamesVars> 
                         <Button className='searchButton' onClick={this.searchGames}>Search</Button>
                 </label>
                 </div>
+                <Card variant="outlined">
                 <div className="displayresults">
                     {this.state.gamesList.map((games) => (
                         <ul>
-                            <li><img src={games.background_image} style={{ width: 100, height: 100 }}/></li>
-                            <li>{games.name}</li>   
-                            <li>{games.released}</li>
-                            <li><CreateReview token={this.props.token} game={games}/></li>
+                            <CardMedia 
+                            component="img"
+                            image={games.background_image} 
+                            style={{ width: 100, height: 100, marginRight: "auto", marginLeft: "auto"  }}/>
+                            <CardContent>
+                            {games.name}  
+                            <br />
+                            {games.released}
+                            </CardContent>
+                            <CreateReview token={this.props.token} game={games}/>
                         </ul>
                     ))}
                 </div>
+                </Card>
             </div>
         )
     }

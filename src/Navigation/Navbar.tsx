@@ -35,6 +35,7 @@ class Navigation extends React.Component<NavbarProps, NavbarVars> {
                         <Link to='/' className='navbarButton' style={{ textDecoration: 'none', color: 'black'}}>Home</Link>
                         <Link to='/savedgamesmine' className='navbarButton' style={{ textDecoration: 'none', color: 'black'}}>My Saved Games</Link>
                         <Link to='/reviewmine' className='navbarButton' style={{ textDecoration: 'none', color: 'black'}}>My Reviews</Link>
+                        <Link to='/reviewall' className='navbarButton' style={{ textDecoration: 'none', color: 'black'}}>Review All</Link>
                         <Button onClick={this.props.clearToken}>Logout</Button>
                     </NavItem>
                     </Nav>

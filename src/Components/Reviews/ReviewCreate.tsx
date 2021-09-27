@@ -4,6 +4,7 @@ import { Form, FormGroup, FormText, Label, Input, Button, InputGroup,  Modal,
 
 type CreateReviewVars = {
     gametitle: string,
+    gameimage: any,
     date: string,
     feedback: string,
     rating: number | string,
@@ -21,6 +22,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
         super(props)
         this.state = {
             gametitle: "",
+            gameimage: "",
             date: "",
             feedback: "",
             rating: 0,
@@ -39,6 +41,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
             method: "POST",
             body:JSON.stringify({
                 gametitle: this.props.game.name,
+                gameimage: this.props.game.background_image,
                 date: this.state.date,
                 feedback: this.state.feedback,
                 rating: this.state.rating,
@@ -64,6 +67,10 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
                         {/* Enter Game Title */}
                         <span>
                         {this.props.game.name}
+                        </span>
+                        <br />
+                        <span>
+                        {this.props.game.background_image}
                         </span>
                         <br />
                         <Input 

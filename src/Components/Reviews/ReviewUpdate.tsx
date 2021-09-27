@@ -73,14 +73,16 @@ class ReviewUpdate extends Component<ReviewUpdateProps, ReviewUpdateVars> {
         return (
             <div className="updatereview">
                 <div className="updatereviewmaindiv">
-                    <Button className="updatereviewbtn" onClick={this.toggle}>Update Review</Button>
+                    <Button className="updatereviewbtn" onClick={this.toggle} style={{ marginRight: "auto", marginLeft: "auto", alignContent: 'center'}}>Update Review</Button>
                     <Modal isOpen={!this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Update Review</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleReviewUpdate}> 
                         <h1>Edit Review!</h1>
                             <Label>Game Name:</Label>
-                            <Input type="text" onChange={(e) => this.setState({gametitle: e.target.value})}/>
+                            <span>
+                            {this.state.gametitle}
+                            </span>
                         <br />
                             <Label>Date Played:</Label>
                             <Input type="text" onChange={(e) => this.setState({date: e.target.value})}/>
