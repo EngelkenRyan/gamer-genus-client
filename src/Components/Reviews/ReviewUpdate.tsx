@@ -75,27 +75,22 @@ class ReviewUpdate extends Component<ReviewUpdateProps, ReviewUpdateVars> {
         return (
             <div className="updatereview">
                 <div className="updatereviewmaindiv">
-                    <Button className="updatereviewbtn" id="updatereviewbtn" onClick={this.toggle} style={{ marginRight: "auto", marginLeft: "auto", alignContent: 'center'}}>Update Review</Button>
+                    <Button className="updatereviewbtn" id="updatereviewbtn" onClick={this.toggle}>Edit Review</Button>
                     <Modal isOpen={!this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Update Review</ModalHeader>
+                    <ModalHeader toggle={this.toggle} className="reviewupdateheader" >Update Review</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleReviewUpdate}> 
-                        <h1>Edit Review!</h1>
-                            <Label>Game Name:</Label>
                             <span>
                             {this.state.gametitle}
                             </span>
                         <br />
-                            <Label>Date Played:</Label>
-                            <Input type="text" onChange={(e) => this.setState({date: e.target.value})}/>
+                            <Input type="text" placeholder="Date" className="editreviewinput" onChange={(e) => this.setState({date: e.target.value})}/>
                         <br />
-                            <Label>Review:</Label>
-                            <Input type="text" onChange={(e) => this.setState({feedback: e.target.value})}/>
+                            <textarea placeholder="Feedback" className="editreviewinputfeedback" onChange={(e) => this.setState({feedback: e.target.value})}/>
                         <br />
-                            <Label>Rating:</Label>
-                            <Input type="number" onChange={(e) => this.setState({rating: e.target.value})}/>
+                            <Input type="number" placeholder="Rating(1 being the worst and 5 being the best" className="editreviewinput" onChange={(e) => this.setState({rating: e.target.value})}/>
                         <br />
-                        <Button>Update Game!</Button>
+                        <Button className="updatereviewbtn">Update Review</Button>
                     </Form>
                     </ModalBody>
                     </Modal>

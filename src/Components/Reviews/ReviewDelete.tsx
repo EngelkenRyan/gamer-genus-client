@@ -38,7 +38,7 @@ class ReviewDelete extends Component <ReviewDeleteProps, ReviewDeleteVars> {
     render(){
         return (
             <div>
-                <Button className="deletereviewbtn" id="deletereviewbtn" type="submit" onClick={this.deleteReview} style={{ marginRight: "auto", marginLeft: "auto"}}>Delete Saved Game</Button>
+                <Button className="deletereviewbtn" type="submit" onClick={this.deleteReview}>Delete Review</Button>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component, useState} from 'react'
-import { Form, FormGroup, FormText, Label, Input, Button, InputGroup,  Modal, 
-    ModalBody, ModalHeader, InputGroupAddon } from "reactstrap";
-
+import { Form, Input, Button, Modal, 
+    ModalBody, ModalHeader } from "reactstrap";
+import './Saved.css'
     
 type SavedGameVars = {
     gametitle: string,
@@ -57,43 +57,43 @@ class CreateSavedGame extends Component<SavedGameProps, SavedGameVars> {
     render() {
         return (
             <div>
-            <Button className="button" onClick={this.toggle} style={{ display: 'flex', marginRight: 'auto', marginLeft:'auto', marginBottom:'25px' }}>Create Saved Game</Button> 
+            <Button className="createsavedbtn" onClick={this.toggle}>Create Saved Game</Button> 
             <Modal isOpen={!this.state.modal} toggle={this.toggle}>
-            <ModalHeader toggle={this.toggle} style={{ display: 'flex', marginRight: 'auto', marginLeft:'auto' }}>Create Game</ModalHeader>
+            <ModalHeader className="createsavedheader" toggle={this.toggle}>Create Game</ModalHeader>
             <ModalBody>
                 <Form onSubmit={this.handleSumbit}>
-                    <div className="savedgamelabel" style={{ textAlign: "center", marginBottom: '10px'}}>
+                    <div className="savedgamelabel">
                     <Input
                 onChange={(e) => this.setState({gametitle: e.target.value})}
                 name="gametitle"
+                className="createsavedinput"
                 placeholder="Enter game title"
                 value={this.state.gametitle}
-                required
-                style={{ textAlign: "center"}}/><br />
+                required/><br />
                 <Input 
                 onChange={(e) => this.setState({genre: e.target.value})}
                 name="genre"
+                className="createsavedinput"
                 placeholder="Enter Genre"
                 value={this.state.genre}
-                style={{ textAlign: "center"}}
                 required /> <br />
                 <Input 
                 onChange={(e) => this.setState({description: e.target.value})}
                 name="description"
+                className="createsavedinput"
                 placeholder="Enter game description"
                 value={this.state.description}
-                style={{ textAlign: "center"}}
                 required /> <br />
                 <Input 
                 onChange={(e) => this.setState({platform: e.target.value})}
                 name="platform"
+                className="createsavedinput"
                 placeholder="Platform"
                 value={this.state.platform}
-                style={{ textAlign: "center"}}
                 required />
                     </div>
                     <div>
-                        <Button className="submitsavedgamebtn" onClick={this.handleSumbit} style={{ display: 'flex',  marginRight: 'auto', marginLeft:'auto' }}>Create!</Button>
+                        <Button className="createsavedbtn" onClick={this.handleSumbit} >Create</Button>
                     </div>
             </Form>
             </ModalBody>

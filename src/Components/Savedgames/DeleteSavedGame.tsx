@@ -37,7 +37,7 @@ class DeleteSavedGame extends Component <DeleteGameProps, DeleteGameVars> {
     render(){
         return (
             <div>
-                <Button className="button" id="deletesavedbtn" type="submit" onClick={this.deleteGame}>Delete Saved Game</Button>
+                <Button className="deletesavedbtn" type="submit" onClick={this.deleteGame}>Delete Saved Game</Button>
             </div>
         )
     }

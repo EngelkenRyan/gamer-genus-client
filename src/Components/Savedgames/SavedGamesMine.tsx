@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardActions, CardContent,CardMedia, Typography, Grid, CardHeader } from '@material-ui/core';
+import { Card, CardActions, Typography, Grid, CardHeader } from '@material-ui/core';
 import CreateSavedGame from './CreateSavedGame'
 import DeleteSavedGame from './DeleteSavedGame';
 import EditSavedGame from './EditSavedGame';
@@ -58,15 +58,15 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
             <div className="createsaveddiv">
             <CreateSavedGame token={this.props.token}/>
                 {myPosts.length > 0 && (
-                    <Grid container justify='center' className="createSavedGrid" style={{
+                    <Grid container justify='center' className="createsavedgrid" style={{
                         textAlign: "center",
                         marginRight: "auto",
                         marginLeft: "auto", height: '70%', width: '70%'
                     }}>
                         {myPosts.map(myPosts => (
-                            <Grid container xs={12} sm={5} justify='center' spacing={0} max-width='400px' style={{marginBottom: '25px'}}>
+                            <Grid container xs={12} sm={5} justify='center' spacing={0}  style={{marginBottom: '25px'}}>
                             <div className='myPosts' key={myPosts.id}>
-                            <Card variant="outlined">
+                            <Card variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
                                 <CardHeader title={myPosts.gametitle}
                                 subheader='Game Title' />
                                 <Typography color='textSecondary'>
@@ -87,7 +87,7 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
                                 <Typography>
                                         {myPosts.platform}
                                 </Typography>
-                                <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
+                                <CardActions className="savedminecardaction">
                                             <EditSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames} />
                                             <DeleteSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames}/>
                                             </CardActions>

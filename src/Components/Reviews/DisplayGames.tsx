@@ -1,15 +1,13 @@
 import React from "react";
 import {
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Button,
-  Typography,
   Grid,
-  Container,
 } from "@material-ui/core";
 import CreateReview from "./ReviewCreate";
+import './Display.css'
 
 type DisplayGamesVars = {
   gamesList: any[];
@@ -76,17 +74,13 @@ class DisplayGames extends React.Component<
   render() {
     return (
       <div>
-        <div className="searchbar" style={{
-                textAlign: "center",
-                marginRight: "auto",
-                marginLeft: "auto",
-                marginBottom: "1%"
-            }}>
+        <div className="searchbar">
           <label>
             Search for a video game to review:
             <input
               type="text"
               placeholder="Game Title"
+              className="searchbarinput"
               value={this.state.searchTerm}
               onChange={this.updateSearchTerm}
             />
@@ -96,15 +90,15 @@ class DisplayGames extends React.Component<
           </label>
         </div>
         <div className="displayresults">
-          <Grid container justify="center" style={{
-                textAlign: "center",
-                marginRight: "auto",
-                marginLeft: "auto", height: '70%', width: '70%'
-            }}>
+          <Grid container justify="center" className="displaygrid" style={{
+                        textAlign: "center",
+                        marginRight: "auto",
+                        marginLeft: "auto", height: '70%', width: '70%'
+                    }}>
             {this.state.gamesList.map((games) => {
               return (
                 <Grid container xs={12} sm={4} justify='center' spacing={0} max-width='400px' style={{marginBottom: '25px'}}>
-                  <Card variant="outlined">
+                  <Card variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
                     <CardMedia
                       component="img"
                       image={games.background_image}

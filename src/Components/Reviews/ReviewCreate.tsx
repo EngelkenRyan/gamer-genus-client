@@ -1,6 +1,8 @@
-import React, { Component, useState} from 'react'
-import { Form, FormGroup, FormText, Label, Input, Button, InputGroup,  Modal, 
-    ModalBody, ModalHeader, InputGroupAddon } from "reactstrap";
+import { Typography } from '@material-ui/core';
+import React, { Component } from 'react'
+import { Form, Input, Button, Modal, 
+    ModalBody, ModalHeader} from "reactstrap";
+import './Display.css'
 
 
 type CreateReviewVars = {
@@ -61,51 +63,46 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
     render() {
         return (
             <div>
-            <Button className="button" onClick={this.toggle} style={{marginBottom: '10px'}}>Create Review</Button> 
+            <Button className="submitreviewbtn" onClick={this.toggle}>Create Review</Button> 
             <Modal isOpen={!this.state.modal} toggle={this.toggle} >
-            <ModalHeader toggle={this.toggle} style={{
-                marginRight: "auto",
-                marginLeft: "auto",
-              }}>Create Review</ModalHeader>
+            <ModalHeader toggle={this.toggle} className="reviewcreateheader">Create Review</ModalHeader>
             <ModalBody>
                 <Form onSubmit={this.handleCreate}>
                     <div className="createreviewlabel">
-                        <span style={{ display: 'flex', justifyContent: 'center' }}>
+                        <textarea readOnly className="textareacreate">
                         {this.props.game.name}
-                        </span>
-                        <br />
-                        <span>
+                        </textarea>
+                        <textarea readOnly className="textareacreate">
                         {this.props.game.background_image}
-                        </span>
-                        <br />
+                        </textarea>
                         <Input 
                         onChange={(e) => this.setState({date: e.target.value})}
-                        name="date"
+                        className="reviewcreateinputs"
                         placeholder="date of review"
                         value={this.state.date}
                         required 
-                        style={{ textAlign: "center", marginTop: '25px' }}
                         />
-                        <br />
-                        <Input 
+                        <textarea 
                         onChange={(e) => this.setState({feedback: e.target.value})}
-                        name="feedback"
+                        className="reviewcreateinputsfeedback"
                         placeholder="Enter your review"
                         value={this.state.feedback}
                         required
-                        style={{ textAlign: "center" }}/>
-                        <br />
+                        />
+                        <Typography color="textSecondary">
+                        Rate this game(1 being the worst and 5 being the best)
+                        </Typography>
                         <Input 
                         onChange={(e) => this.setState({rating: e.target.value})}
                         type="number"
-                        name="rating"
-                        placeholder="Rate this game(1 being the worst and 5 being the best"
+                        className="reviewcreateinputs"
+                        placeholder="Rate this game(1 being the worst and 5 being the best)"
                         value={this.state.rating}
                         required
-                        style={{ textAlign: "center", marginBottom: '10px' }}/>
+                        />
                     </div>
                     <div>
-                        <Button className="submitreviewbtn" onClick={this.handleCreate} style={{ display: 'flex', justifyContent: 'center', marginRight: 'auto', marginLeft:'auto' }}>Create Review</Button>
+                        <Button type="submit" className="submitreviewbtn" onClick={this.handleCreate}>Create Review</Button>
                     </div>
             </Form>
             </ModalBody>

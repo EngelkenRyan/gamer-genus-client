@@ -11,24 +11,11 @@
         background-color: inherit;
     }
 
-    /* #deletereviewbtn, #updatereviewbtn {
-        background-color: orange;
+    .modal-content {
         margin-left: auto;
         margin-right: auto;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        align-self: center;
-
-    } */
-
-    /* .deletereviewbtn, .updatereviewbtn {
-        background-color: orange;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        align-self: center;
-
-    } */
+        text-align: center;
+        background: rgba(248, 190, 190, 0.815);
+      }
+      
+      

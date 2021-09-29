@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, CardActions, CardContent,CardMedia, Button, Typography, Grid, Container, CardHeader } from '@material-ui/core';
+import { Card, CardContent,CardMedia, Typography, Grid, CardHeader } from '@material-ui/core';
 
 type ReviewAllVars = {
     gametitle: string,
@@ -56,12 +56,7 @@ class ReviewAll extends Component<ReviewAllProps, ReviewAllVars> {
         const { myReviews } = this.state;
         return(
             <div className='reviewAll'>
-                <h1 style={{
-                textAlign: "center",
-                marginRight: "auto",
-                marginLeft: "auto",
-                marginBottom: "25px"
-            }}>All Reviews</h1>
+                <h1 className="reviewallhead">All Reviews</h1>
             {myReviews.length > 0 && (
                 <Grid container justify='center' className="reviewAllGrid" style={{
                     textAlign: "center",
@@ -69,9 +64,9 @@ class ReviewAll extends Component<ReviewAllProps, ReviewAllVars> {
                     marginLeft: "auto", height: '70%', width: '70%'
                 }}> 
                 {myReviews.map(myReviews => (
-                        <Grid container xs={12} sm={5} justify='center' spacing={0} max-width='300px' style={{marginBottom: '25px'}}>
+                        <Grid container xs={12} sm={5} justify='center' spacing={0} style={{marginBottom: '25px'}} >
                             <div className='allReviews' key={myReviews.id}>
-                                <Card variant="outlined" >
+                                <Card variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
                                     <CardHeader 
                                         title={myReviews.gametitle}
                                         subheader={myReviews.date}

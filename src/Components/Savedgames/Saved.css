@@ -1,0 +1,89 @@
+.app {
+    background-color: #808080;
+}
+
+/* Create Saved Button */
+.createsavedbtn {
+    background-color: #c0c0c0;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-bottom: 2%;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.createsavedbtn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Edit Saved Button */
+.editsavedbtn {
+    background-color: #c0c0c0;
+    color: black;
+    margin-bottom: 2%;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.editsavedbtn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Delete Saved Button */
+
+.deletesavedbtn {
+    background-color: #c0c0c0;
+    color: black;
+    margin-bottom: 2%;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.deletesavedbtn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Create Saved Game */
+
+.createsavedinput {
+    text-align: center;
+    background-color: #c0c0c0;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.createsavedheader {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Saved Games Mine */
+
+.savedminecardaction {
+    display: flex;
+    justify-content: center;
+}
+
+.reivewminecardactions {
+    display: flex;
+    justify-content: center;
+}
+/* Saved Game Edit */
+
+.editsavedheader {
+    display: flex;
+    justify-content: center;
+}
+
+.editgameinput {
+    text-align: center;
+    background-color: #c0c0c0;
+    margin-bottom: 10px;
+    color: black;
+}
+

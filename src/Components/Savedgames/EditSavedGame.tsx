@@ -2,12 +2,12 @@ import { Component } from 'react';
 import { 
     Button, 
     Form, 
-    Label, 
     Input,
     Modal, 
     ModalBody, 
     ModalHeader
 } from 'reactstrap';
+import './Saved.css'
 
 type EditGameVars = {
     gametitle: string,
@@ -74,29 +74,26 @@ class EditSavedGame extends Component<EditGameProps, EditGameVars> {
 
     render() {
         return (
-            <div className="editsavedmain">
-                <div className="editsavedmaindiv">
-                    <Button className="editsavedbtn" onClick={this.toggle}>Edit Saved Game!</Button>
+            <div className="editsavedmain" >
+                <div className="editsavedmaindiv" >
+                    <Button className="editsavedbtn" onClick={this.toggle}>Edit Saved Game</Button>
                     <Modal isOpen={!this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Update Item</ModalHeader>
+                    <div className="editsavedmain">
+                    <ModalHeader className="editsavedheader" toggle={this.toggle}>Edit Post</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleUpdate}> 
-                        <h1>Edit Post!</h1>
-                            <Label>Game Name:</Label>
-                            <Input type="text" onChange={(e) => this.setState({gametitle: e.target.value})}/>
+                            <Input type="text" placeholder="Game Title" className="editgameinput" onChange={(e) => this.setState({gametitle: e.target.value})}/>
                         <br />
-                            <Label>Genre:</Label>
-                            <Input type="text" onChange={(e) => this.setState({genre: e.target.value})}/>
+                            <Input type="text" placeholder="Genre" className="editgameinput" onChange={(e) => this.setState({genre: e.target.value})}/>
                         <br />
-                            <Label>Description:</Label>
-                            <Input type="text" onChange={(e) => this.setState({description: e.target.value})}/>
+                            <Input type="text" placeholder="Description" className="editgameinput" onChange={(e) => this.setState({description: e.target.value})}/>
                         <br />
-                            <Label>Platform:</Label>
-                            <Input type="text" onChange={(e) => this.setState({platform: e.target.value})}/>
+                            <Input type="text" placeholder="Platform" className="editgameinput" onChange={(e) => this.setState({platform: e.target.value})}/>
                         <br />
-                        <Button>Update Game!</Button>
+                        <Button className="editsavedbtn">Update Game</Button>
                     </Form>
                     </ModalBody>
+                    </div>
                     </Modal>
                 </div>
             </div>
