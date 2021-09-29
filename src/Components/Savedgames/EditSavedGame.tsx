@@ -41,9 +41,9 @@ class EditSavedGame extends Component<EditGameProps, EditGameVars> {
         })
     }
 
-    handleUpdate = (e: any) => {
+    handleUpdate = async (e: any) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/savedgame/savedupdate/${this.props.myPosts.id}`, {
+        await fetch(`http://localhost:3000/savedgame/savedupdate/${this.props.myPosts.id}`, {
             method: "PUT",
             body: JSON.stringify({
                 gametitle: this.state.gametitle,
@@ -66,8 +66,10 @@ class EditSavedGame extends Component<EditGameProps, EditGameVars> {
                 this.toggle()
                 this.props.fetchMySavedGames();
             console.log(data)
-        })
-    }
+        }).catch((error) => {
+            console.log(error.message)
+            })
+        };
 
 
     render() {

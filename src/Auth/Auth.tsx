@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import {Button, Form, Modal, ModalHeader, ModalFooter} from "reactstrap";
 import Register from './Register'
 import Login from "./Login";
 
 type AuthVariables = {
-  showLogin: boolean,
-  buttonText: string,
-  modal: boolean
+  signupOpen: boolean,
+  loginOpen: boolean,
 }
 
 type AuthProps = {
@@ -17,56 +15,32 @@ token: string
 class Auth extends Component<AuthProps, AuthVariables> {
 constructor(props: AuthProps) {
 super(props)
-this.state = {modal: true, showLogin: true, buttonText: "Already a User?" };}
+this.state = {signupOpen: false, loginOpen: false };}
 
-
-
-toggle = (): void => {
-this.setState({modal: !this.state.modal})
+signupHandler = () => {
+  this.setState({
+      signupOpen: true
+  })
 }
 
-componentDidMount() {
-  if(localStorage.getItem("token")) {
-    this.setState({modal: !this.state.modal})
-  }
+loginHandler = () => {
+  this.setState({
+      loginOpen: true
+  })
 }
 
-  handleClick = () => { 
-    if (this.state.showLogin === true) {
-      this.setState({showLogin: false});
-      this.setState({buttonText: "New User?"});
-    } else {
-      this.setState ({showLogin: true});
-      this.setState({buttonText: "Already A User?"});
-    }
-  }
+closeHandler = () => {
+  this.setState({
+      signupOpen: false,
+      loginOpen: false,
+  })
+}
 
   render() {
   return (
-    <div className="auth" > 
-    <Form onSubmit={(e) => e.preventDefault()}>
-        <Modal isOpen={this.state.modal}   style={{justifyContent: 'center',
-      alignItems: 'center',}}>
-          <div className="authcontainer">
-            {this.state.showLogin === true ? (
-              <Register updateToken={this.props.updateToken} token={this.props.token} toggle={this.toggle} />
-            ) : (
-              <Login updateToken={this.props.updateToken} token ={this.props.token}  toggle={this.toggle} />
-            )}
-
-            <ModalFooter
-            style={{
-            textAlign: "center",
-            marginRight: "auto",
-            marginLeft: "auto"
-        }}>
-              <Button color="secondary" onClick={this.handleClick}>
-                  {this.state.buttonText}
-              </Button>
-            </ModalFooter>
-          </div>
-        </Modal>
-      </Form>
+    <div className="Auth"> 
+    <Login updateToken={this.props.updateToken} token ={this.props.token}/>
+    <Register updateToken={this.props.updateToken} token={this.props.token} />
 </div>
   )
 };

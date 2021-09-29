@@ -42,9 +42,6 @@ export default class App extends Component<{}, AppState> {
 render() {
   return (
     <div className="App">
-    {/* <Auth updateToken={this.updateToken} token={this.state.sessionToken}/> */}
-    {/* <CreateSavedGame  token={this.state.sessionToken}/>
-    <SavedGamesMine token={this.state.sessionToken}/>  */}
     <Router>
     {this.state.sessionToken !== '' && <Navigation token={this.state.sessionToken} clearToken={this.clearToken}/>}
     {this.protectedView()}

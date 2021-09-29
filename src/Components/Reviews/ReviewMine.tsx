@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardActions, CardContent,CardMedia, Button, Typography } from '@material-ui/core';
+import { Card, CardActions, CardContent,CardMedia, Typography, Grid, CardHeader } from '@material-ui/core';
 import ReviewDelete from './ReviewDelete';
 import ReviewUpdate from './ReviewUpdate'
 
@@ -33,8 +33,8 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
         this.fetchReviewMine()
     }
 
-    fetchReviewMine = () => {
-        fetch(`http://localhost:3000/review/mine`, {
+    fetchReviewMine = async () => {
+        await fetch(`http://localhost:3000/review/mine`, {
             method: 'GET',
             headers: ({
                 'Content-Type': 'application/json',
@@ -47,48 +47,64 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
             this.setState({
                 myReviews: data
             })
-        })
-    }
+        }).catch((error) => {
+            console.log(error.message)
+            })
+        };
 
     render() {
         const { myReviews } = this.state;
         return(
-            <Card variant="outlined">
+            <div className="reviewMine">
+                       <h1 style={{
+                textAlign: "center",
+                marginRight: "auto",
+                marginLeft: "auto",
+                marginBottom: "25px"
+            }}>My Reviews</h1>
                 {myReviews.length > 0 && (
-                    <div className='reviewmineTable'>
+                    <Grid container justify='center' className="reviewMineGrid"  style={{
+                        textAlign: "center",
+                        marginRight: "auto",
+                        marginLeft: "auto", height: '70%', width: '70%'
+                    }}>
                         {myReviews.map(myReviews => (
+                            <Grid container xs={12} sm={5} justify='center' spacing={0} max-width='400px' style={{marginBottom: '25px'}}>
                             <div className='myReviews' key={myReviews.id}>
+                                <Card variant="outlined">
+                                        <CardHeader 
+                                            title={myReviews.gametitle}
+                                            subheader={myReviews.date} 
+                                            />
                                             <CardMedia
                                             component="img"
-                                            image={myReviews.gameimage} style={{ width: 100, height: 100, marginRight: "auto", marginLeft: "auto" }}/>
+                                            image={myReviews.gameimage} style={{height: 150, marginRight: "auto", marginLeft: "auto" }}/>
                                             <CardContent>
-                                            <Typography gutterBottom variant="h5">
-                                            Gametitle: <br />
-                                            {myReviews.gametitle}   
+                                            <Typography color="textSecondary">
+                                            Review:
                                             </Typography>
-                                            <Typography gutterBottom>
-                                            <br />
-                                            {myReviews.date}    
-                                            </Typography>
-                                            <Typography gutterBottom>
-                                            <br />
+                                            <Typography>
                                             {myReviews.feedback}    
                                             </Typography>
-                                            <Typography gutterBottom>
                                             <br />
+                                            <Typography color="textSecondary">
+                                            Rating:
+                                            </Typography>
+                                            <Typography>
                                             {myReviews.rating}
                                             </Typography>
                                             </CardContent>
-                                            <CardActions>
+                                            <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
                                             <ReviewUpdate token={this.props.token} myReviews={myReviews} fetchMyReviews={this.fetchReviewMine}/>
                                             <ReviewDelete token={this.props.token} myReviews={myReviews} fetchMyReviews={this.fetchReviewMine}/>
                                             </CardActions>
+                                    </Card>
                             </div>
+                            </Grid>
                         ))}
-                    </div>
-                )}
-
-            </Card>
+                        </Grid>
+                        )}
+                        </div>
         )
     }
 }

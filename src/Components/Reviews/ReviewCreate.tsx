@@ -2,6 +2,7 @@ import React, { Component, useState} from 'react'
 import { Form, FormGroup, FormText, Label, Input, Button, InputGroup,  Modal, 
     ModalBody, ModalHeader, InputGroupAddon } from "reactstrap";
 
+
 type CreateReviewVars = {
     gametitle: string,
     gameimage: any,
@@ -14,7 +15,7 @@ type CreateReviewVars = {
 
 type CreateReviewProps = {
     token: string,
-    game: any
+    game: any,
 }
 
 class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
@@ -52,20 +53,24 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
             }
         })
         const res = await response.json()
-        console.log(res)
-    }
+        .catch((error) => {
+        console.log(error.message)
+        })
+    };
 
     render() {
         return (
             <div>
-            <Button className="button" onClick={this.toggle}>Create Review</Button> 
-            <Modal isOpen={!this.state.modal} toggle={this.toggle}>
-            <ModalHeader toggle={this.toggle}>Create Review</ModalHeader>
+            <Button className="button" onClick={this.toggle} style={{marginBottom: '10px'}}>Create Review</Button> 
+            <Modal isOpen={!this.state.modal} toggle={this.toggle} >
+            <ModalHeader toggle={this.toggle} style={{
+                marginRight: "auto",
+                marginLeft: "auto",
+              }}>Create Review</ModalHeader>
             <ModalBody>
                 <Form onSubmit={this.handleCreate}>
                     <div className="createreviewlabel">
-                        {/* Enter Game Title */}
-                        <span>
+                        <span style={{ display: 'flex', justifyContent: 'center' }}>
                         {this.props.game.name}
                         </span>
                         <br />
@@ -78,14 +83,17 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
                         name="date"
                         placeholder="date of review"
                         value={this.state.date}
-                        required/>
+                        required 
+                        style={{ textAlign: "center", marginTop: '25px' }}
+                        />
                         <br />
                         <Input 
                         onChange={(e) => this.setState({feedback: e.target.value})}
                         name="feedback"
                         placeholder="Enter your review"
                         value={this.state.feedback}
-                        required/>
+                        required
+                        style={{ textAlign: "center" }}/>
                         <br />
                         <Input 
                         onChange={(e) => this.setState({rating: e.target.value})}
@@ -93,10 +101,11 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
                         name="rating"
                         placeholder="Rate this game(1 being the worst and 5 being the best"
                         value={this.state.rating}
-                        required/>
+                        required
+                        style={{ textAlign: "center", marginBottom: '10px' }}/>
                     </div>
                     <div>
-                        <Button className="submitreviewbtn" onClick={this.handleCreate}>Create Review</Button>
+                        <Button className="submitreviewbtn" onClick={this.handleCreate} style={{ display: 'flex', justifyContent: 'center', marginRight: 'auto', marginLeft:'auto' }}>Create Review</Button>
                     </div>
             </Form>
             </ModalBody>
@@ -107,3 +116,4 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
 }
 
 export default CreateReview
+

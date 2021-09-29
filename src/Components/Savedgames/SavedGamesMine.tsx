@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table } from 'reactstrap';
+import { Card, CardActions, CardContent,CardMedia, Typography, Grid, CardHeader } from '@material-ui/core';
 import CreateSavedGame from './CreateSavedGame'
 import DeleteSavedGame from './DeleteSavedGame';
 import EditSavedGame from './EditSavedGame';
@@ -13,7 +13,7 @@ type SavedMineVars = {
 }
 
 type SavedMineProps = {
-    token: string
+    token: string,
 }
 
 
@@ -33,8 +33,8 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
         this.fetchSavedGames()
     }
 
-    fetchSavedGames = () => {
-    fetch(`http://localhost:3000/savedgame/savedmine`, {
+    fetchSavedGames = async () => {
+    await fetch(`http://localhost:3000/savedgame/savedmine`, {
         method: 'GET',
         headers: ({
             'Content-Type': 'application/json',
@@ -47,45 +47,56 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
         this.setState({
             myPosts: data
         })
-    })
-}
+    }).catch((error) => {
+        console.log(error.message)
+        })
+    };
     
     render() {
         const { myPosts } = this.state;
         return (
-        <div className="createsaveddiv">
+            <div className="createsaveddiv">
             <CreateSavedGame token={this.props.token}/>
-            <div className='main'>
                 {myPosts.length > 0 && (
-                    <div className='postsTable'>
+                    <Grid container justify='center' className="createSavedGrid" style={{
+                        textAlign: "center",
+                        marginRight: "auto",
+                        marginLeft: "auto", height: '70%', width: '70%'
+                    }}>
                         {myPosts.map(myPosts => (
+                            <Grid container xs={12} sm={5} justify='center' spacing={0} max-width='400px' style={{marginBottom: '25px'}}>
                             <div className='myPosts' key={myPosts.id}>
-                                <Table>
-                                    <thead>
-                                        <tr>
-                                            <th>Game Name</th>
-                                            <th>Genre</th>
-                                            <th>Description</th>
-                                            <th>Platform</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{myPosts.gametitle}</td>
-                                            <td>{myPosts.genre}</td>
-                                            <td>{myPosts.description}</td>
-                                            <td>{myPosts.platform}</td>
-                                            <td><EditSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames} /></td>
-                                            <td><DeleteSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames}/></td>
-                                        </tr>
-                                    </tbody>
-                                </Table>
+                            <Card variant="outlined">
+                                <CardHeader title={myPosts.gametitle}
+                                subheader='Game Title' />
+                                <Typography color='textSecondary'>
+                                    Genre
+                                </Typography>
+                                <Typography>
+                                        {myPosts.genre}
+                                </Typography>
+                                <Typography color='textSecondary'>
+                                    Description
+                                </Typography>
+                                <Typography>
+                                        {myPosts.description}
+                                </Typography>
+                                <Typography color='textSecondary'>
+                                    Platform
+                                </Typography>
+                                <Typography>
+                                        {myPosts.platform}
+                                </Typography>
+                                <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
+                                            <EditSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames} />
+                                            <DeleteSavedGame token={this.props.token} myPosts={myPosts} fetchMySavedGames={this.fetchSavedGames}/>
+                                            </CardActions>
+                                </Card>
                             </div>
+                            </Grid>
                         ))}
-                    </div>
+                        </Grid>
                 )}
-            </div>
         </div>
         )
     }

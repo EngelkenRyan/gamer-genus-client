@@ -20,8 +20,8 @@ class ReviewDelete extends Component <ReviewDeleteProps, ReviewDeleteVars> {
         }
     }
     
-    deleteReview = () => {
-        fetch(`http://localhost:3000/review/delete/${this.props.myReviews.id}`, {
+    deleteReview = async () => {
+        await fetch(`http://localhost:3000/review/delete/${this.props.myReviews.id}`, {
             method: "DELETE",
             headers: ({
                 'Content-Type': 'application/json',
@@ -30,13 +30,15 @@ class ReviewDelete extends Component <ReviewDeleteProps, ReviewDeleteVars> {
         }).then((response) => response.json()
         ).then ((data) => {
             this.props.fetchMyReviews()
-        })
-    }
+        }).catch((error) => {
+            console.log(error.message)
+            })
+        };
 
     render(){
         return (
             <div>
-                <Button className="button" id="deletereviewbtn" type="submit" onClick={this.deleteReview} style={{ marginRight: "auto", marginLeft: "auto", alignContent: 'center'}}>Delete Saved Game</Button>
+                <Button className="deletereviewbtn" id="deletereviewbtn" type="submit" onClick={this.deleteReview} style={{ marginRight: "auto", marginLeft: "auto"}}>Delete Saved Game</Button>
             </div>
         )
     }

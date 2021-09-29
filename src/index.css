@@ -1,0 +1,34 @@
+/* NAVBAR */
+.navbar-nav > li {
+        list-style: none;
+        padding-left:10px;
+        padding-right:10px;
+        margin-bottom: 30px;
+    }
+    
+    .navbar {
+        margin-block-end: 5px;
+        background-color: inherit;
+    }
+
+    /* #deletereviewbtn, #updatereviewbtn {
+        background-color: orange;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+
+    } */
+
+    /* .deletereviewbtn, .updatereviewbtn {
+        background-color: orange;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        align-self: center;
+
+    } */

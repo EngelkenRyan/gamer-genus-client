@@ -41,9 +41,9 @@ class ReviewUpdate extends Component<ReviewUpdateProps, ReviewUpdateVars> {
         })
     }
 
-    handleReviewUpdate = (e: any) => {
+    handleReviewUpdate = async (e: any) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/review/update/${this.props.myReviews.id}`, {
+        await fetch(`http://localhost:3000/review/update/${this.props.myReviews.id}`, {
             method: "PUT",
             body: JSON.stringify({
                 gametitle: this.state.gametitle,
@@ -65,15 +65,17 @@ class ReviewUpdate extends Component<ReviewUpdateProps, ReviewUpdateVars> {
             })
                 this.toggle()
                 this.props.fetchMyReviews();
-        })
-    }
+        }).catch((error) => {
+            console.log(error.message)
+            })
+        };
 
 
     render() {
         return (
             <div className="updatereview">
                 <div className="updatereviewmaindiv">
-                    <Button className="updatereviewbtn" onClick={this.toggle} style={{ marginRight: "auto", marginLeft: "auto", alignContent: 'center'}}>Update Review</Button>
+                    <Button className="updatereviewbtn" id="updatereviewbtn" onClick={this.toggle} style={{ marginRight: "auto", marginLeft: "auto", alignContent: 'center'}}>Update Review</Button>
                     <Modal isOpen={!this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>Update Review</ModalHeader>
                     <ModalBody>

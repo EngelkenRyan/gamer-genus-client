@@ -19,8 +19,8 @@ class DeleteSavedGame extends Component <DeleteGameProps, DeleteGameVars> {
         }
     }
 
-    deleteGame = () => {
-        fetch(`http://localhost:3000/savedgame/saveddelete/${this.props.myPosts.id}`, {
+    deleteGame = async () => {
+        await fetch(`http://localhost:3000/savedgame/saveddelete/${this.props.myPosts.id}`, {
             method: "DELETE",
             headers: ({
                 'Content-Type': 'application/json',
@@ -29,8 +29,10 @@ class DeleteSavedGame extends Component <DeleteGameProps, DeleteGameVars> {
         }).then((response) => response.json()
         ).then ((data) => {
             this.props.fetchMySavedGames()
-        })
-    }
+        }).catch((error) => {
+            console.log(error.message)
+            })
+        };
 
     render(){
         return (

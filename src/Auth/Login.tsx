@@ -9,7 +9,6 @@ type UserVars = {
 type LoginProps = {
     updateToken: (newToken: string) => void,
     token: string,
-    toggle: () => void
 }
 
 class Login extends Component<LoginProps, UserVars> {
@@ -37,13 +36,15 @@ class Login extends Component<LoginProps, UserVars> {
           .then((data) => {
             this.props.updateToken(data.sessionToken);
             localStorage.setItem("role", data.user.role);
-            // this.props.toggle();
-        })
-      }
+        }).catch((error) => {
+            console.log(error.message)
+            })
+    };
+  
 
       render() {
           return (
-              <div                       style={{
+              <div style={{
                 textAlign: "center",
                 marginRight: "auto",
                 marginLeft: "auto"
@@ -55,22 +56,22 @@ class Login extends Component<LoginProps, UserVars> {
                           <Input
                             onChange={(e) => this.setState({email: e.target.value})}
                             type="email"
-                            name="email"
-                            placeholder="example@email.com"
+                            placeholder="Example@email.com"
                             value={this.state.email} 
                             required
-                            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center'}}/>
+                            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center', width: '15%', marginRight: "auto",
+                            marginLeft: "auto"}}/>
                       </FormGroup>
                       <FormGroup className="login-form">
                           <Label htmlFor="password" className="login-label">Password</Label><br />
                           <Input 
                             onChange={(e) => this.setState({password: e.target.value })}
                             type="password"
-                            name="password"
-                            placeholder="password"
+                            placeholder="Password"
                             value={this.state.password}
-                            required
-                            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center'}}/>
+                            required 
+                            style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center', width: '15%', marginRight: "auto",
+                            marginLeft: "auto"}}/>
                       </FormGroup>
                       <Button type="submit" style={{marginBottom: ".5%"}}>Login</Button>
                   </Form>
