@@ -1,97 +1,96 @@
 /* Create Saved Button */
 .createsavedbtn {
-    background-color: #c0c0c0;
-    color: black;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    font-size: 12px;
-    border-radius: 12px;
+  background-color: #c0c0c0;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-size: 12px;
+  border-radius: 12px;
 }
 
 .createsavedbtn:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 /* Edit Saved Button */
 .editsavedbtn {
-    background-color: #c0c0c0;
-    color: black;
-    margin-bottom: 2%;
-    font-size: 12px;
-    border-radius: 12px;
+  background-color: #c0c0c0;
+  color: black;
+  margin-bottom: 2%;
+  font-size: 12px;
+  border-radius: 12px;
 }
 
 .editsavedbtn:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 /* Delete Saved Button */
 
 .deletesavedbtn {
-    background-color: #c0c0c0;
-    color: black;
-    margin-bottom: 2%;
-    font-size: 12px;
-    border-radius: 12px;
+  background-color: #c0c0c0;
+  color: black;
+  margin-bottom: 2%;
+  font-size: 12px;
+  border-radius: 12px;
 }
 
 .deletesavedbtn:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 /* Create Saved Game */
 
 .createsavedinput {
-    text-align: center;
-    background-color: #c0c0c0;
-    margin-bottom: 10px;
-    color: black;
-    border-radius: 12px
+  text-align: center;
+  background-color: #c0c0c0;
+  margin-bottom: 10px;
+  color: black;
+  border-radius: 12px;
 }
 
 .createsavedheader {
-    margin-right: auto;
-    margin-left: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* Saved Games Mine */
 
 .savedminecardaction {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .reivewminecardactions {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .createsaveddiv {
-    background-color: #526f9e;
-    overflow: auto;
-    height: 100vh;
-    padding-top: 44px;
-    padding-bottom: 25px;
+  background-color: #526f9e;
+  overflow: auto;
+  height: 100vh;
+  padding-top: 44px;
+  padding-bottom: 25px;
 }
 
 /* Saved Game Edit */
 
 .editsavedheader {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .editgameinput {
-    text-align: center;
-    background-color: #c0c0c0;
-    margin-bottom: 10px;
-    color: black;
-    border-radius: 12px
+  text-align: center;
+  background-color: #c0c0c0;
+  margin-bottom: 10px;
+  color: black;
+  border-radius: 12px;
 }
-

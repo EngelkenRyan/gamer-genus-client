@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Button,
-  Grid,
-} from "@material-ui/core";
+import { Card, CardContent, CardMedia, Button, Grid } from "@material-ui/core";
 import CreateReview from "./ReviewCreate";
-import './Display.css'
+import "./Display.css";
 
 type DisplayGamesVars = {
   gamesList: any[];
@@ -48,15 +42,15 @@ class DisplayGames extends React.Component<
     )
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         this.setState({
           gamesList: json.results,
           create: true,
         });
-      }).catch((error) => {
-    console.log(error.message)
-    })
-};
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   updateSearchTerm = (e: any) => {
     this.setState({
@@ -90,15 +84,39 @@ class DisplayGames extends React.Component<
           </label>
         </div>
         <div className="displayresults">
-          <Grid container justify="center" className="displaygrid" style={{
-                        textAlign: "center",
-                        marginRight: "auto",
-                        marginLeft: "auto", height: '70%', width: '70%'
-                    }}>
+          <Grid
+            container
+            justify="center"
+            className="displaygrid"
+            style={{
+              textAlign: "center",
+              marginRight: "auto",
+              marginLeft: "auto",
+              height: "70%",
+              width: "70%",
+            }}
+          >
             {this.state.gamesList.map((games) => {
               return (
-                <Grid container xs={12} sm={4} justify='center' spacing={0} max-width='400px' style={{marginBottom: '25px'}}>
-                  <Card className="card" variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
+                <Grid
+                  container
+                  xs={12}
+                  sm={4}
+                  justify="center"
+                  spacing={0}
+                  max-width="400px"
+                  style={{ marginBottom: "25px" }}
+                >
+                  <Card
+                    className="card"
+                    variant="outlined"
+                    style={{
+                      boxShadow: "0 8px 24px 0",
+                      backgroundColor: "inherit",
+                      maxWidth: "300px",
+                      borderRadius: " 25px 25px 25px 25px",
+                    }}
+                  >
                     <CardMedia
                       component="img"
                       image={games.background_image}
@@ -113,7 +131,7 @@ class DisplayGames extends React.Component<
                       <br />
                       {games.released}
                     </CardContent>
-                  <CreateReview token={this.props.token} game={games} />
+                    <CreateReview token={this.props.token} game={games} />
                   </Card>
                 </Grid>
               );
