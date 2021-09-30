@@ -66,7 +66,7 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
                         {myPosts.map(myPosts => (
                             <Grid container xs={12} sm={5} justify='center' spacing={0}  style={{marginBottom: '25px'}}>
                             <div className='myPosts' key={myPosts.id}>
-                            <Card variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
+                            <Card className="card" variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: '#9fafca', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
                                 <CardHeader title={myPosts.gametitle}
                                 subheader='Game Title' />
                                 <Typography color='textSecondary'>

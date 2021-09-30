@@ -8,6 +8,7 @@ import {
     import {
         Link,
     } from 'react-router-dom';
+import './navbar.css'
 
 type NavbarProps = {
     token: string,
@@ -36,7 +37,7 @@ class Navigation extends React.Component<NavbarProps, NavbarVars> {
                         <Link to='/savedgamesmine' className='navbarButton' style={{ textDecoration: 'none', color: 'black', marginRight: '10px'}}>My Saved Games</Link>
                         <Link to='/reviewmine' className='navbarButton' style={{ textDecoration: 'none', color: 'black', marginRight: '10px'}}>My Reviews</Link>
                         <Link to='/reviewall' className='navbarButton' style={{ textDecoration: 'none', color: 'black', marginRight: '10px'}}>Review All</Link>
-                        <Button onClick={this.props.clearToken} style={{ textDecoration: 'none', color: 'black', border: 'none', }}>Logout</Button>
+                        <Button onClick={this.props.clearToken} style={{ textDecoration: 'none', color: 'black', border: 'none', overflow: 'hidden', backgroundColor: 'transparent' }}>Logout</Button>
                     </NavItem>
                     </Nav>
                         </Navbar>

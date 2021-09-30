@@ -1,0 +1,69 @@
+.loginbtn {
+    background-color: #c0c0c0;
+    color: black;
+    margin-bottom: 5%;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.loginbtn:hover {
+    background-color: white;
+    color: black;
+}
+
+.registerbtn {
+    background-color: #c0c0c0;
+    color: black;
+    margin-bottom: 5%;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.registerbtn:hover {
+    background-color: white;
+    color: black;
+}
+
+.logindiv {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.registerinput {
+    text-align: center;
+    background-color: #c0c0c0;
+    margin-bottom: 10px;
+    color: black;
+    width: 50%;
+    border-radius: 12px
+}
+
+.selectbox {
+    background-color: #c0c0c0;
+    color: black;
+    margin-bottom: 5%;
+    font-size: 12px;
+    border-radius: 12px;
+}
+
+.logininput {
+    text-align: center;
+    background-color: #c0c0c0;
+    margin-bottom: 10px;
+    color: black;
+    width: 50%;
+    border-radius: 12px
+}
+
+.Auth {
+    background-color: #526f9e;
+    overflow: auto;
+
+}
+
+html {
+    background-color: #526f9e;
+    overflow: auto;
+
+}

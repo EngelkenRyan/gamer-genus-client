@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, FormGroup, FormText, Label, Input, Button, InputGroup,  Modal, 
   ModalBody, ModalHeader, InputGroupAddon } from "reactstrap";
+  import './Auth.css'
 
 type RegisterVars = {
   email: string,
@@ -63,24 +64,20 @@ class Register extends Component<RegisterProps, RegisterVars> {
         marginRight: "auto",
         marginLeft: "auto"
     }}>
-        <Button onClick={this.toggle}>Create Account</Button>
+        <Button onClick={this.toggle} className="registerbtn" >Create Account</Button>
         <Modal isOpen={!this.state.modal} toggle={this.toggle}>
         <ModalHeader toggle={this.toggle} style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center', 
               marginRight: "auto",
               marginLeft: "auto",
           }}>Create Account</ModalHeader>
         <ModalBody>
-        <Form onSubmit={this.handleSubmit} style={{
-                textAlign: "center",
-                marginRight: "auto",
-                marginLeft: "auto"
-            }}>
+        <Form onSubmit={this.handleSubmit} >
           <FormGroup className="register-form" >
             <Label className="register-label" htmlFor="Email" >Email</Label><br />
             <Input
             onChange={(e) => this.setState({email: e.target.value})}
             type="email"
-            name="email"
+            className="registerinput"
             placeholder="example@email.com"
             value={this.state.email} 
             required
@@ -94,7 +91,7 @@ class Register extends Component<RegisterProps, RegisterVars> {
             <Label className="register-label" htmlFor="username">Username</Label><br />
             <Input 
             onChange={(e) => this.setState({username: e.target.value })}
-            name="username"
+            className="registerinput"
             placeholder="username"
             value={this.state.username} 
             required
@@ -110,6 +107,7 @@ class Register extends Component<RegisterProps, RegisterVars> {
             onChange={(e) => this.setState({password: e.target.value })}
             type="password"
             name="password"
+            className="registerinput"
             placeholder="password"
             value={this.state.password}
             required pattern='^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
@@ -120,12 +118,12 @@ class Register extends Component<RegisterProps, RegisterVars> {
         }}/>
           </FormGroup>
           <FormGroup style={{marginBottom: "1%"}}>
-            <select onChange={(e) => this.setState({role: e.target.value.toLowerCase() })} style={{marginBottom: "2%", width: '25%'}}>
+            <select className="selectbox" onChange={(e) => this.setState({role: e.target.value.toLowerCase() })} style={{marginBottom: "2%", width: '25%'}}>
             <option>User</option>
             <option>Admin</option>
             </select>
           </FormGroup>
-            <Button type="submit" style={{marginBottom: ".5%"}}>Sign Up!</Button>
+            <Button type="submit" className="registerbtn" style={{marginBottom: ".5%"}}>Sign Up!</Button>
         </Form>
         </ModalBody>
         </Modal>

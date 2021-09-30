@@ -55,7 +55,7 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
     render() {
         const { myReviews } = this.state;
         return(
-            <div className="reviewMine">
+            <div className="reviewmine">
                 <h1 className="reviewminehead">My Reviews</h1>
                 {myReviews.length > 0 && (
                     <Grid container justify='center' className="reviewMineGrid"  style={{
@@ -64,9 +64,9 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
                         marginLeft: "auto", height: '70%', width: '70%'
                     }}>
                         {myReviews.map(myReviews => (
-                            <Grid container xs={12} sm={5} justify='center' spacing={0} max-width='400px' style={{marginBottom: '25px'}}>
+                            <Grid container xs={12} sm={5} justify='center' spacing={0} style={{marginBottom: '25px'}}>
                             <div className='myReviews' key={myReviews.id}>
-                                <Card variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
+                                <Card className="card" variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: '#9fafca', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
                                         <CardHeader 
                                             title={myReviews.gametitle}
                                             subheader={myReviews.date} 

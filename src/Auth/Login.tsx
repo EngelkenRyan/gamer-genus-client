@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import './Auth.css'
 
 type UserVars = {
     email: string,
@@ -44,18 +45,18 @@ class Login extends Component<LoginProps, UserVars> {
 
       render() {
           return (
-              <div style={{
-                textAlign: "center",
-                marginRight: "auto",
-                marginLeft: "auto"
-            }}>
+              <div className="logindiv">
                   <h1>Login</h1>
+                  <br />
+                  <br />
+
                   <Form onSubmit={this.handleSubmit}>
                       <FormGroup className="login-form">
                           <Label htmlFor="email" className="login-label">Email</Label><br />
                           <Input
                             onChange={(e) => this.setState({email: e.target.value})}
                             type="email"
+                            className="logininput"
                             placeholder="Example@email.com"
                             value={this.state.email} 
                             required
@@ -67,13 +68,14 @@ class Login extends Component<LoginProps, UserVars> {
                           <Input 
                             onChange={(e) => this.setState({password: e.target.value })}
                             type="password"
+                            className="logininput"
                             placeholder="Password"
                             value={this.state.password}
                             required 
                             style={{marginBottom: "1%", marginTop: ".5%", textAlign: 'center', width: '15%', marginRight: "auto",
                             marginLeft: "auto"}}/>
                       </FormGroup>
-                      <Button type="submit" style={{marginBottom: ".5%"}}>Login</Button>
+                      <Button type="submit" className="loginbtn" style={{marginBottom: ".5%"}}>Login</Button>
                   </Form>
               </div>
           )

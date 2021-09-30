@@ -73,7 +73,7 @@ class DisplayGames extends React.Component<
 
   render() {
     return (
-      <div>
+      <div className="displaygamesdiv">
         <div className="searchbar">
           <label>
             Search for a video game to review:
@@ -98,7 +98,7 @@ class DisplayGames extends React.Component<
             {this.state.gamesList.map((games) => {
               return (
                 <Grid container xs={12} sm={4} justify='center' spacing={0} max-width='400px' style={{marginBottom: '25px'}}>
-                  <Card variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
+                  <Card className="card" variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
                     <CardMedia
                       component="img"
                       image={games.background_image}

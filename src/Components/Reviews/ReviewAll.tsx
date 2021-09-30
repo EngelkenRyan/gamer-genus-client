@@ -58,15 +58,15 @@ class ReviewAll extends Component<ReviewAllProps, ReviewAllVars> {
             <div className='reviewAll'>
                 <h1 className="reviewallhead">All Reviews</h1>
             {myReviews.length > 0 && (
-                <Grid container justify='center' className="reviewAllGrid" style={{
+                <Grid container justify='center'style={{
                     textAlign: "center",
                     marginRight: "auto",
                     marginLeft: "auto", height: '70%', width: '70%'
                 }}> 
                 {myReviews.map(myReviews => (
-                        <Grid container xs={12} sm={5} justify='center' spacing={0} style={{marginBottom: '25px'}} >
+                        <Grid  container xs={12} sm={4} justify='center' spacing={0} style={{marginBottom: '25px'}} >
                             <div className='allReviews' key={myReviews.id}>
-                                <Card variant="outlined" style={{ boxShadow: '0 8px 24px 0', backgroundColor: 'inherit', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
+                                <Card className="card" style={{ boxShadow: '0 8px 24px 0', backgroundColor: '#9fafca', maxWidth: '300px', borderRadius: " 25px 25px 25px 25px"}}>
                                     <CardHeader 
                                         title={myReviews.gametitle}
                                         subheader={myReviews.date}
