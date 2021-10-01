@@ -149,7 +149,6 @@ class Register extends Component<RegisterProps, RegisterVars> {
                   placeholder="password"
                   value={this.state.password}
                   required
-                  // pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
                   style={{
                     marginBottom: "2%",
                     marginTop: ".5%",
