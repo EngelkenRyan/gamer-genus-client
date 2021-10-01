@@ -6,7 +6,7 @@ import SavedGamesMine from './Components/Savedgames/SavedGamesMine';
 import Navigation from './Navigation/Navbar';
 import Navigationbar from './Navigation/Navigation';
 import {
-  BrowserRouter as Router //We are importing the specific part of the package BrowserRouter but calling it Router. 
+  BrowserRouter as Router 
 } from 'react-router-dom';
 
 type AppState = {
