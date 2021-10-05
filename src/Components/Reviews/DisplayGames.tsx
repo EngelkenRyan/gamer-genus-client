@@ -78,7 +78,7 @@ class DisplayGames extends React.Component<
               value={this.state.searchTerm}
               onChange={this.updateSearchTerm}
             />
-            <Button className="searchButton" onClick={this.searchGames}>
+            <Button className="searchButton" onClick={this.searchGames} style={{ fontFamily: 'Nova Square'}}>
               Search
             </Button>
           </label>
@@ -112,7 +112,7 @@ class DisplayGames extends React.Component<
                     variant="outlined"
                     style={{
                       boxShadow: "0 8px 24px 0",
-                      backgroundColor: "inherit",
+                      backgroundColor: "#9fafca",
                       maxWidth: "300px",
                       borderRadius: " 25px 25px 25px 25px",
                     }}

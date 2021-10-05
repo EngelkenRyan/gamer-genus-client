@@ -11,6 +11,9 @@ import DeleteSavedGame from "./DeleteSavedGame";
 import EditSavedGame from "./EditSavedGame";
 import APIURL from "../../helpers/environment";
 
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet"></link>
+
+
 type SavedMineVars = {
   gametitle: string;
   genre: string;
@@ -94,18 +97,22 @@ class SavedGamesMine extends Component<SavedMineProps, SavedMineVars> {
                       backgroundColor: "#9fafca",
                       maxWidth: "300px",
                       borderRadius: " 25px 25px 25px 25px",
+                      fontFamily: 'Nova Square'
                     }}
                   >
                     <CardHeader
-                      title={myPosts.gametitle}
+                    title={
+                      <Typography style={{ fontFamily: 'Nova Square' }}>
+                      {myPosts.gametitle}
+                      </Typography>}
                       subheader="Game Title"
                     />
                     <Typography color="textSecondary">Genre</Typography>
-                    <Typography>{myPosts.genre}</Typography>
+                    <Typography style={{ fontFamily: 'Nova Square' }}>{myPosts.genre}</Typography>
                     <Typography color="textSecondary">Description</Typography>
-                    <Typography>{myPosts.description}</Typography>
+                    <Typography style={{ fontFamily: 'Nova Square' }}>{myPosts.description}</Typography>
                     <Typography color="textSecondary">Platform</Typography>
-                    <Typography>{myPosts.platform}</Typography>
+                    <Typography style={{ fontFamily: 'Nova Square' }}>{myPosts.platform}</Typography>
                     <CardActions className="savedminecardaction">
                       <EditSavedGame
                         token={this.props.token}

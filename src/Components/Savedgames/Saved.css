@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
 /* Create Saved Button */
 .createsavedbtn {
   background-color: #c0c0c0;
@@ -9,6 +12,8 @@
   margin-bottom: 2%;
   font-size: 12px;
   border-radius: 12px;
+  font-family: 'Nova Square', cursive;
+
 }
 
 .createsavedbtn:hover {
@@ -23,6 +28,8 @@
   margin-bottom: 2%;
   font-size: 12px;
   border-radius: 12px;
+  font-family: 'Nova Square', cursive;
+
 }
 
 .editsavedbtn:hover {
@@ -53,11 +60,14 @@
   margin-bottom: 10px;
   color: black;
   border-radius: 12px;
+  font-family: 'Nova Square', cursive;
+
 }
 
 .createsavedheader {
   margin-right: auto;
   margin-left: auto;
+  font-family: 'Orbitron', sans-serif;
 }
 
 /* Saved Games Mine */
@@ -78,6 +88,11 @@
   height: 100vh;
   padding-top: 44px;
   padding-bottom: 25px;
+  font-family: 'Nova Square', cursive;
+}
+
+.myPosts {
+  font-family: 'Nova Square', cursive;
 }
 
 /* Saved Game Edit */
@@ -85,6 +100,8 @@
 .editsavedheader {
   display: flex;
   justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+
 }
 
 .editgameinput {
@@ -93,4 +110,5 @@
   margin-bottom: 10px;
   color: black;
   border-radius: 12px;
+  font-family: 'Nova Square', cursive;
 }

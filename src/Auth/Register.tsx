@@ -80,6 +80,7 @@ class Register extends Component<RegisterProps, RegisterVars> {
         </Button>
         <Modal isOpen={!this.state.modal} toggle={this.toggle}>
           <ModalHeader
+          className="registerheader"
             toggle={this.toggle}
             style={{
               marginBottom: "1%",
@@ -148,7 +149,7 @@ class Register extends Component<RegisterProps, RegisterVars> {
                   className="registerinput"
                   placeholder="password"
                   value={this.state.password}
-                  required
+                  required  pattern='^(?=.{5,10})(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).*$' title='Password must be at least 5 characters, and contain at least 1 uppercase character, a lowercase character, a number, and a special character.' minLength={5} maxLength={20}
                   style={{
                     marginBottom: "2%",
                     marginTop: ".5%",
@@ -167,8 +168,8 @@ class Register extends Component<RegisterProps, RegisterVars> {
                   }
                   style={{ marginBottom: "2%", width: "25%" }}
                 >
-                  <option>User</option>
-                  <option>Admin</option>
+                  <option className="roleselect">User</option>
+                  <option className="roleselect">Admin</option>
                 </select>
               </FormGroup>
               <Button

@@ -12,6 +12,9 @@ import ReviewDelete from "./ReviewDelete";
 import ReviewUpdate from "./ReviewUpdate";
 import APIURL from "../../helpers/environment";
 
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet"></link>
+
+
 type ReviewMineVars = {
   gametitle: string;
   gameimage: any;
@@ -100,9 +103,11 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
                     }}
                   >
                     <CardHeader
-                      title={myReviews.gametitle}
-                      subheader={myReviews.date}
-                    />
+                      title={
+                        <Typography style={{ fontFamily: 'Nova Square' }}>
+                          {myReviews.gametitle} 
+                        </Typography>}
+                      subheader={myReviews.date} />
                     <CardMedia
                       component="img"
                       image={myReviews.gameimage}
@@ -114,10 +119,10 @@ class ReviewMine extends Component<ReviewMineProps, ReviewMineVars> {
                     />
                     <CardContent>
                       <Typography color="textSecondary">Review:</Typography>
-                      <Typography>{myReviews.feedback}</Typography>
+                      <Typography style={{ fontFamily: 'Nova Square' }}>{myReviews.feedback}</Typography>
                       <br />
                       <Typography color="textSecondary">Rating:</Typography>
-                      <Typography>{myReviews.rating}</Typography>
+                      <Typography style={{ fontFamily: 'Nova Square' }}> {myReviews.rating}</Typography>
                     </CardContent>
                     <CardActions className="reivewminecardactions">
                       <ReviewUpdate

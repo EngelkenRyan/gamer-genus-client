@@ -4,6 +4,9 @@ import { Form, Input, Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 import APIURL from "../../helpers/environment";
 import "./Display.css";
 
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet"></link>
+
+
 type CreateReviewVars = {
   gametitle: string;
   gameimage: any;
@@ -37,6 +40,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
     this.setState({ modal: !this.state.modal });
   };
 
+
   handleCreate = async (e: any) => {
     e.preventDefault();
     const response = await fetch(`${APIURL}/review/create`, {
@@ -53,6 +57,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
         Authorization: `Bearer ${this.props.token}`,
       },
     });
+    this.toggle();
     const res = await response.json().catch((error) => {
       console.log(error.message);
     });
@@ -61,15 +66,15 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
   render() {
     return (
       <div>
-        <Button className="submitreviewbtn" onClick={this.toggle}>
+        <Button className="submitreviewbtn" onClick={this.toggle} >
           Create Review
         </Button>
         <Modal isOpen={!this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle} className="reviewcreateheader">
+          <ModalHeader toggle={this.toggle} className="reviewcreateheader" >
             Create Review
           </ModalHeader>
           <ModalBody>
-            <Form onSubmit={this.handleCreate}>
+            <Form onSubmit={this.handleCreate} >
               <div className="createreviewlabel">
                 <textarea readOnly className="textareacreate">
                   {this.props.game.name}
@@ -80,7 +85,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
                 <Input
                   onChange={(e) => this.setState({ date: e.target.value })}
                   className="reviewcreateinputs"
-                  placeholder="date of review"
+                  placeholder="Date of review"
                   value={this.state.date}
                   required
                 />
@@ -91,7 +96,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
                   value={this.state.feedback}
                   required
                 />
-                <Typography color="textSecondary">
+                <Typography color="textSecondary" style={{ fontFamily: 'Nova Square'}}>
                   Rate this game(1 being the worst and 5 being the best)
                 </Typography>
                 <Input
@@ -105,9 +110,7 @@ class CreateReview extends Component<CreateReviewProps, CreateReviewVars> {
               </div>
               <div>
                 <Button
-                  type="submit"
                   className="submitreviewbtn"
-                  onClick={this.handleCreate}
                 >
                   Create Review
                 </Button>

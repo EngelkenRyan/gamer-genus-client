@@ -9,6 +9,9 @@ import {
 } from "@material-ui/core";
 import APIURL from "../../helpers/environment";
 
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet"></link>
+
+
 type ReviewAllVars = {
   gametitle: string;
   gameimage: any;
@@ -57,6 +60,7 @@ class ReviewAll extends Component<ReviewAllProps, ReviewAllVars> {
         console.log(error.message);
       });
   };
+  
 
   render() {
     const { myReviews } = this.state;
@@ -95,9 +99,11 @@ class ReviewAll extends Component<ReviewAllProps, ReviewAllVars> {
                     }}
                   >
                     <CardHeader
-                      title={myReviews.gametitle}
-                      subheader={myReviews.date}
-                    />
+                      title={
+                        <Typography style={{ fontFamily: 'Nova Square' }}>
+                          {myReviews.gametitle} 
+                        </Typography>}
+                      subheader={myReviews.date} />
                     <CardMedia
                       component="img"
                       image={myReviews.gameimage}
@@ -107,12 +113,12 @@ class ReviewAll extends Component<ReviewAllProps, ReviewAllVars> {
                         marginRight: "auto",
                       }}
                     />
-                    <CardContent>
+                    <CardContent style={{ fontFamily: 'Nova Square' }}>
                       <Typography color="textSecondary">Review:</Typography>
-                      <Typography>{myReviews.feedback}</Typography>
+                      <Typography style={{ fontFamily: 'Nova Square' }} >{myReviews.feedback}</Typography>
                       <br />
                       <Typography color="textSecondary">Rating:</Typography>
-                      <Typography>{myReviews.rating}</Typography>
+                      <Typography style={{ fontFamily: 'Nova Square' }}>{myReviews.rating}</Typography>
                     </CardContent>
                   </Card>
                 </div>

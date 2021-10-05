@@ -6,6 +6,7 @@ import "./Auth.css";
 type UserVars = {
   email: string;
   password: string;
+  success: boolean;
 };
 
 type LoginProps = {
@@ -19,10 +20,12 @@ class Login extends Component<LoginProps, UserVars> {
     this.state = {
       email: "",
       password: "",
+      success: false,
     };
   }
 
   handleSubmit = (e: any) => {
+    const { email, password } = this.state
     e.preventDefault();
     fetch(`${APIURL}/user/login`, {
       method: "POST",
@@ -47,7 +50,7 @@ class Login extends Component<LoginProps, UserVars> {
   render() {
     return (
       <div className="logindiv">
-        <h1>Login</h1>
+        <h1 className="loginheader">Login</h1>
         <br />
         <br />
 

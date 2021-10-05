@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
 .loginbtn {
     background-color: #c0c0c0;
     color: black;
     margin-bottom: 5%;
     font-size: 12px;
     border-radius: 12px;
+    font-family: 'Nova Square', cursive;
 }
 
 .loginbtn:hover {
@@ -17,6 +21,7 @@
     margin-bottom: 5%;
     font-size: 12px;
     border-radius: 12px;
+    font-family: 'Nova Square', cursive;
 }
 
 .registerbtn:hover {
@@ -36,7 +41,8 @@
     margin-bottom: 10px;
     color: black;
     width: 50%;
-    border-radius: 12px
+    border-radius: 12px;
+    font-family: 'Nova Square', cursive;
 }
 
 .selectbox {
@@ -53,7 +59,8 @@
     margin-bottom: 10px;
     color: black;
     width: 50%;
-    border-radius: 12px
+    border-radius: 12px;
+    font-family: 'Nova Square', cursive;
 }
 
 .Auth {
@@ -65,5 +72,24 @@
 html {
     background-color: #526f9e;
     overflow: auto;
+}
 
+.loginheader {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.login-label {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.registerheader {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.register-label {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.roleselect {
+    font-family: 'Nova Square', cursive;
 }

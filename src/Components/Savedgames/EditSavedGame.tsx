@@ -80,21 +80,21 @@ class EditSavedGame extends Component<EditGameProps, EditGameVars> {
               </ModalHeader>
               <ModalBody>
                 <Form onSubmit={this.handleUpdate}>
-                  <Input
+                  {/* <Input
                     type="text"
                     placeholder="Game Title"
                     className="editgameinput"
                     onChange={(e) =>
                       this.setState({ gametitle: e.target.value })
                     }
-                  />
+                  /> */}
+                  <textarea readOnly className="textareacreate">
+                    {this.props.myPosts.gametitle}
+                    </textarea>
                   <br />
-                  <Input
-                    type="text"
-                    placeholder="Genre"
-                    className="editgameinput"
-                    onChange={(e) => this.setState({ genre: e.target.value })}
-                  />
+                  <textarea readOnly className="textareacreate">
+                      {this.props.myPosts.genre}
+                      </textarea>
                   <br />
                   <Input
                     type="text"

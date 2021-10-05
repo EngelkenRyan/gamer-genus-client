@@ -33,6 +33,8 @@ class CreateSavedGame extends Component<SavedGameProps, SavedGameVars> {
     this.setState({ modal: !this.state.modal });
   };
 
+
+
   handleSumbit = async (e: any) => {
     e.preventDefault();
     const response = await fetch(`${APIURL}/savedgame/savedcreate`, {
@@ -48,6 +50,7 @@ class CreateSavedGame extends Component<SavedGameProps, SavedGameVars> {
         Authorization: `Bearer ${this.props.token}`,
       },
     });
+    this.toggle();
     const res = await response.json().catch((error) => {
       console.log(error.message);
     });
@@ -60,11 +63,11 @@ class CreateSavedGame extends Component<SavedGameProps, SavedGameVars> {
           Create Saved Game
         </Button>
         <Modal isOpen={!this.state.modal} toggle={this.toggle}>
-          <ModalHeader className="createsavedheader" toggle={this.toggle}>
+          <ModalHeader className="createsavedheader" >
             Create Game
           </ModalHeader>
           <ModalBody>
-            <Form onSubmit={this.handleSumbit}>
+            <Form onSubmit={this.handleSumbit} >
               <div className="savedgamelabel">
                 <Input
                   onChange={(e) => this.setState({ gametitle: e.target.value })}
@@ -105,7 +108,7 @@ class CreateSavedGame extends Component<SavedGameProps, SavedGameVars> {
                 />
               </div>
               <div>
-                <Button className="createsavedbtn" onClick={this.handleSumbit}>
+                <Button className="createsavedbtn">
                   Create
                 </Button>
               </div>

@@ -82,7 +82,9 @@ class ReviewUpdate extends Component<ReviewUpdateProps, ReviewUpdateVars> {
             </ModalHeader>
             <ModalBody>
               <Form onSubmit={this.handleReviewUpdate}>
-                <span>{this.state.gametitle}</span>
+              <textarea readOnly className="textareacreate">
+                {this.state.gametitle}
+                </textarea>
                 <br />
                 <Input
                   type="text"
