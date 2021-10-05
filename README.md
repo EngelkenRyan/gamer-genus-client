@@ -1,10 +1,28 @@
-# Getting Started with Create React App
+# Gamer-Genus-Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A place for gamers to view honest reviews from actual users. No IGN here.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+The Gamer Genus App is a place for all gamers to get honest and real reviews from other games. This app fetches from RAWG Video Games Database API to help you find the game you are searching to review. This app also alows user to create a saved game list that way you have an easy way to remember games you may want to play in the future.
+
+## Languages & Libraries
+
+* React
+* TypeScript
+* Bootstrap
+* HTML
+* CSS
+
+## Features
+
+* Fetches from RAWG Video Games Database API
+* Role-based access control
+* Full CRUD functionality
+
+## Check it out
+
+https://gamer-genus-engelken.herokuapp.com/
 
 ### `npm start`
 
