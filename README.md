@@ -24,6 +24,8 @@ The Gamer Genus App is a place for all gamers to get honest and real reviews fro
 
 https://gamer-genus-engelken.herokuapp.com/
 
+## Available Scripts
+
 ### `npm start`
 
 Runs the app in the development mode.\
